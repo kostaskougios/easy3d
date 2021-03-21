@@ -18,9 +18,10 @@ import java.nio._
  */
 
 @main def exampleApp(): Unit =
-  println("hi")
+  init()
 
 def init(): Unit =
+  println("init")
   GLFWErrorCallback.createPrint(System.err).set()
   if (!glfwInit())
     throw new IllegalStateException("Unable to initialize GLFW")
@@ -31,4 +32,35 @@ def init(): Unit =
 
   val window = glfwCreateWindow(300, 300, "Hello World!", NULL, NULL)
   if (window == NULL) throw new RuntimeException("Failed to create the GLFW window")
+
+  // Setup a key callback. It will be called every time a key is pressed, repeated or released.
+  glfwSetKeyCallback(window, (window, key, scancode, action, mods) => {
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE)
+      glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+  })
+
+  val stack = stackPush()
+  try {
+    val pWidth = stack.mallocInt(1) // int*
+    val pHeight = stack.mallocInt(1)
+    // Get the window size passed to glfwCreateWindow
+    glfwGetWindowSize(window, pWidth, pHeight)
+    // Get the resolution of the primary monitor
+    val vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor)
+    // Center the window
+    glfwSetWindowPos(window, (vidmode.width - pWidth.get(0)) / 2, (vidmode.height - pHeight.get(0)) / 2)
+  } finally {
+    if (stack != null) stack.close()
+  }
+
+  // Make the OpenGL context current// Make the OpenGL context current
+
+  glfwMakeContextCurrent(window)
+  // Enable v-sync
+  glfwSwapInterval(1)
+
+  // Make the window visible
+  glfwShowWindow(window)
+  println("done")
+		
   
