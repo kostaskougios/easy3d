@@ -13,10 +13,8 @@ import org.lwjgl.system._
 import java.nio._
 
 /**
- * @author kostas.kougios
- *         20/03/2021 - 01:39
+ * https://www.lwjgl.org/guide
  */
-
 @main def exampleApp(): Unit =
   init()
 
