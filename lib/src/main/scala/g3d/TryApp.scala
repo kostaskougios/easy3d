@@ -31,17 +31,8 @@ def init(): Unit =
   // Configure GLFW
   val window = Window.createWindow(300, 300, "Hello World!", NULL)
 
-  val stack = stackPush()
-  try {
-    val pWidth = stack.mallocInt(1) // int*
-    val pHeight = stack.mallocInt(1)
-    // Get the window size passed to glfwCreateWindow
-    glfwGetWindowSize(window, pWidth, pHeight)
-    // Center the window
-    glfwSetWindowPos(window, (vidmode.width - pWidth.get(0)) / 2, (vidmode.height - pHeight.get(0)) / 2)
-  } finally {
-    if (stack != null) stack.close()
-  }
+  val (windowWidth, windowHeight) = Window.windowSize(window)
+  glfwSetWindowPos(window, (vidmode.width - windowWidth) / 2, (vidmode.height - windowHeight) / 2)
 
   // Make the OpenGL context current
 

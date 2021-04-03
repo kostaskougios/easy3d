@@ -1,6 +1,7 @@
 package easy3d.lowlevel
 
 import org.lwjgl.glfw.GLFW._
+import org.lwjgl.system.MemoryStack.stackPush
 import org.lwjgl.system.MemoryUtil.NULL
 
 /**
@@ -21,4 +22,16 @@ object Window:
     val window = glfwCreateWindow(width, height, title, monitor, NULL)
     if (window == NULL) throw new RuntimeException("Failed to create the GLFW window")
     window
+
+  def windowSize(window: Long): (Int, Int) =
+    val stack = stackPush()
+    try {
+      val pWidth = stack.mallocInt(1) // int*
+      val pHeight = stack.mallocInt(1)
+      // Get the window size passed to glfwCreateWindow
+      glfwGetWindowSize(window, pWidth, pHeight)
+      (pWidth.get(0), pHeight.get(0))
+    } finally {
+      if (stack != null) stack.close()
+    }
 
