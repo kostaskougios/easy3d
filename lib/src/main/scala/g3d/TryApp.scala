@@ -59,6 +59,7 @@ def init(): Unit =
 
   // Make the window visible
   glfwShowWindow(window)
+  Thread.sleep(2000)
   println("done")
 		
   
