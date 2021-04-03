@@ -40,6 +40,12 @@ import java.nio._
 
     // Make the window visible
     glfwShowWindow(window)
+
+    GL.createCapabilities
+    glClearColor(0.5f, 0.0f, 0.0f, 0.0f)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    glfwSwapBuffers(window)
+
     Thread.sleep(2000)
     println("done")
       
