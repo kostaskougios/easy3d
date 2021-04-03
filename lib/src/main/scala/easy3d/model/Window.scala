@@ -10,6 +10,3 @@ trait Window:
   def title: String
 
 case class FullScreenWindow(monitor: Monitor, title: String) extends Window
-
-object Window:
-  def fullScreen(monitor: Monitor, title: String): Window = FullScreenWindow(monitor, title)

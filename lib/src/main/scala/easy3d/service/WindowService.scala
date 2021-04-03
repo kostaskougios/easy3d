@@ -28,3 +28,6 @@ class WindowService(monitorService: MonitorService):
     val window = glfwCreateWindow(monitor.width, monitor.height, title, monitor.handler, NULL)
     if (window == NULL) throw new RuntimeException("Failed to create the GLFW window")
     window
+
+trait WindowServiceBeans extends MonitorServiceBeans :
+  lazy val windowService = new WindowService(monitorService)

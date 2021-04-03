@@ -14,4 +14,6 @@ class MonitorService:
     else ???
     val v = glfwGetVideoMode(handler)
     MonitorInstance(monitor.id, handler, v.width, v.height)
-  
+
+trait MonitorServiceBeans:
+  lazy val monitorService = new MonitorService()
