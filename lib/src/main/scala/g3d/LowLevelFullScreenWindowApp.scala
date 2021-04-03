@@ -1,6 +1,6 @@
 package g3d
 
-import easy3d.lowlevel.{Init, Screen, Window}
+import easy3d.lowlevel.{Init, Monitor, Window}
 import org.lwjgl.glfw.GLFW._
 import org.lwjgl.glfw.GLFWErrorCallback
 import org.lwjgl.opengl.GL
@@ -19,7 +19,7 @@ import org.lwjgl.system.MemoryUtil.NULL
     println("init")
     Init.init()
     // Configure GLFW
-    val window = Window.createFullScreenWindow("Hello World!", Screen.primaryMonitor)
+    val window = Window.createFullScreenWindow("Hello World!", Monitor.primaryMonitor)
 
     // Make the OpenGL context current
     glfwMakeContextCurrent(window)

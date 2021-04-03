@@ -17,7 +17,7 @@ object Window:
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE) // the window will stay hidden after creation
     glfwWindowHint(GLFW_FLOATING, GLFW_TRUE)
     glfwWindowHint(GLFW_DECORATED, GLFW_FALSE)
-    val v = Screen.videoMode(monitor)
+    val v = Monitor.videoMode(monitor)
     val window = glfwCreateWindow(v.width, v.height, title, monitor, NULL)
     if (window == NULL) throw new RuntimeException("Failed to create the GLFW window")
     window

@@ -7,7 +7,7 @@ import org.lwjgl.glfw.GLFWVidMode
  * @author kostas.kougios
  *         03/04/2021 - 01:11
  */
-object Screen:
+object Monitor:
   def primaryMonitor: Long = glfwGetPrimaryMonitor
 
   def primaryMonitorVideoMode: GLFWVidMode = videoMode(primaryMonitor)
