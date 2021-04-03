@@ -1,6 +1,6 @@
 package g3d
 
-import easy3d.lowlevel.{Screen, Window}
+import easy3d.lowlevel.{Init, Screen, Window}
 import org.lwjgl.glfw.GLFW._
 import org.lwjgl.glfw.GLFWErrorCallback
 import org.lwjgl.system.MemoryUtil.NULL
@@ -15,10 +15,7 @@ import org.lwjgl.system.MemoryUtil.NULL
 
   def init(): Unit =
     println("init")
-    GLFWErrorCallback.createPrint(System.err).set()
-    if (!glfwInit())
-      throw new IllegalStateException("Unable to initialize GLFW")
-
+    Init.init()
     // Configure GLFW
     val window = Window.createFullScreenWindow("Hello World!", Screen.primaryMonitor)
 
@@ -31,5 +28,3 @@ import org.lwjgl.system.MemoryUtil.NULL
     glfwShowWindow(window)
     Thread.sleep(2000)
     println("done")
-      
-    

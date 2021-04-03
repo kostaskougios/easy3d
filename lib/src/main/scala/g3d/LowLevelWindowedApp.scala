@@ -1,6 +1,6 @@
 package g3d
 
-import easy3d.lowlevel.{Screen, Window}
+import easy3d.lowlevel.{Init, Screen, Window}
 import org.lwjgl._
 import org.lwjgl.glfw.Callbacks._
 import org.lwjgl.glfw.GLFW._
@@ -21,9 +21,7 @@ import java.nio._
 
   def init(): Unit =
     println("init")
-    GLFWErrorCallback.createPrint(System.err).set()
-    if (!glfwInit())
-      throw new IllegalStateException("Unable to initialize GLFW")
+    Init.init()
 
     // Get the resolution of the primary monitor
     val vidmode = Screen.primaryMonitorVideoMode
