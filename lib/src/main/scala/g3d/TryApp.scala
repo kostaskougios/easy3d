@@ -1,6 +1,6 @@
 package g3d
 
-import easy3d.init.Screen
+import easy3d.lowlevel.{Screen, Window}
 import org.lwjgl._
 import org.lwjgl.glfw.Callbacks._
 import org.lwjgl.glfw.GLFW._
@@ -29,13 +29,7 @@ def init(): Unit =
   val vidmode = Screen.primaryMonitorVideoMode
 
   // Configure GLFW
-  glfwDefaultWindowHints() // optional, the current window hints are already the default
-  glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE) // the window will stay hidden after creation
-  glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE) // the window will be resizable
-
-
-  val window = glfwCreateWindow(300, 300, "Hello World!", NULL, NULL)
-  if (window == NULL) throw new RuntimeException("Failed to create the GLFW window")
+  val window = Window.createWindow(300, 300, "Hello World!", NULL)
 
   val stack = stackPush()
   try {
@@ -49,7 +43,7 @@ def init(): Unit =
     if (stack != null) stack.close()
   }
 
-  // Make the OpenGL context current// Make the OpenGL context current
+  // Make the OpenGL context current
 
   glfwMakeContextCurrent(window)
   // Enable v-sync
