@@ -29,7 +29,7 @@ def init(): Unit =
   val vidmode = Screen.primaryMonitorVideoMode
 
   // Configure GLFW
-  val window = Window.createWindow(300, 300, "Hello World!", NULL)
+  val window = Window.createWindow(600, 600, "Hello World!", NULL)
 
   val (windowWidth, windowHeight) = Window.windowSize(window)
   glfwSetWindowPos(window, (vidmode.width - windowWidth) / 2, (vidmode.height - windowHeight) / 2)
