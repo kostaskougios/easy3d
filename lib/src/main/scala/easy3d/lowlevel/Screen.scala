@@ -12,5 +12,5 @@ object Screen:
 
   def primaryMonitorVideoMode: GLFWVidMode = videoMode(primaryMonitor)
 
-  def videoMode(monitor: Long) = glfwGetVideoMode(monitor)
+  def videoMode(monitor: Long): GLFWVidMode = glfwGetVideoMode(monitor)
 

@@ -9,6 +9,19 @@ import org.lwjgl.system.MemoryUtil.NULL
  *         03/04/2021 - 01:20
  */
 object Window:
+  def createFullScreenWindow(
+                              title: String,
+                              monitor: Long
+                            ): Long =
+    glfwDefaultWindowHints() // optional, the current window hints are already the default
+    glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE) // the window will stay hidden after creation
+    glfwWindowHint(GLFW_FLOATING, GLFW_TRUE)
+    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE)
+    val v = Screen.videoMode(monitor)
+    val window = glfwCreateWindow(v.width, v.height, title, monitor, NULL)
+    if (window == NULL) throw new RuntimeException("Failed to create the GLFW window")
+    window
+
   def createWindow(
                     width: Int,
                     height: Int,
