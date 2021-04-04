@@ -1,7 +1,8 @@
 package g3d
 
 import easy3d.LibModule
-import easy3d.model.{Context, FullScreenWindow, MainResult, Monitor}
+import easy3d.model._
+import easy3d.model.drawables.ClearWindow
 
 /**
  * @author kostas.kougios
@@ -11,9 +12,10 @@ import easy3d.model.{Context, FullScreenWindow, MainResult, Monitor}
   new LibModule :
     mainLoopService.mainLoop(FullScreenWindow(Monitor.primaryMonitor, "hello there")) {
       mc =>
-        println(mc.time)
-        if (mc.time > 50)
+        val t = mc.time
+        println(t)
+        if (t > 50)
           MainResult(exit = true)
           else
-          MainResult()
+          MainResult(draw = Seq(ClearWindow(Color(t / 100f, t / 100f, t / 100f, 0))))
     }

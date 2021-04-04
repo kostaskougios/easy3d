@@ -1,6 +1,8 @@
 package easy3d.service
 
+import easy3d.model.drawables.Drawable
 import easy3d.model.{MainContext, MainResult, Window}
+import org.lwjgl.opengl.GL
 
 /**
  * @author kostas.kougios
@@ -17,13 +19,17 @@ class MainLoopService(
     initService.createCapabilities()
     initService.swapInterval(1)
     w.showWindow()
+    GL.createCapabilities
     var time = 0L
     while
       time += 1
       val r = main(MainContext(time, w))
+      draw(r.draw)
       !r.exit
     do w.swapBuffers()
 
+  private def draw(drawables: Seq[Drawable]): Unit =
+    for (d <- drawables) d.draw()
 
 trait MainLoopServiceBeans
   extends InitServiceBeans
