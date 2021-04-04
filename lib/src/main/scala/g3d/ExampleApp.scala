@@ -1,7 +1,7 @@
 package g3d
 
 import easy3d.LibModule
-import easy3d.model.{Context, FullScreenWindow, Monitor}
+import easy3d.model.{Context, FullScreenWindow, MainResult, Monitor}
 
 /**
  * @author kostas.kougios
@@ -9,13 +9,11 @@ import easy3d.model.{Context, FullScreenWindow, Monitor}
  */
 @main def exampleApp(): Unit =
   new LibModule :
-    initService.init()
-    val w = windowService.create(FullScreenWindow(Monitor.primaryMonitor, "hello there"))
-    w.makeContextCurrent()
-    initService.createCapabilities()
-    initService.swapInterval(1)
-    w.showWindow()
-    Context.clearColor(0.5, 0, 0, 0)
-    Context.clear()
-    w.swapBuffers()
-    Thread.sleep(1000)
+    mainLoopService.mainLoop(FullScreenWindow(Monitor.primaryMonitor, "hello there")) {
+      mc =>
+        println(mc.time)
+        if (mc.time > 50)
+          MainResult(exit = true)
+          else
+          MainResult()
+    }

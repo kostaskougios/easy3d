@@ -1,6 +1,6 @@
 package easy3d
 
-import easy3d.service.{InitServiceBeans, MonitorServiceBeans, WindowServiceBeans}
+import easy3d.service.{InitServiceBeans, MainLoopServiceBeans, MonitorServiceBeans, WindowServiceBeans}
 
 /**
  * @author kostas.kougios
@@ -9,3 +9,4 @@ import easy3d.service.{InitServiceBeans, MonitorServiceBeans, WindowServiceBeans
 trait LibModule extends InitServiceBeans
   with MonitorServiceBeans
   with WindowServiceBeans
+  with MainLoopServiceBeans
