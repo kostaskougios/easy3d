@@ -20,11 +20,12 @@ class MainLoopService(
     var time = 0L
     while
       time += 1
-      val r = main(MainContext(time))
+      val r = main(MainContext(time, w))
       !r.exit
     do w.swapBuffers()
 
 
-trait MainLoopServiceBeans extends InitServiceBeans
-  with WindowServiceBeans :
+trait MainLoopServiceBeans
+  extends InitServiceBeans
+    with WindowServiceBeans :
   lazy val mainLoopService = new MainLoopService(initService, windowService)
