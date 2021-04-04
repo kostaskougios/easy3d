@@ -15,4 +15,6 @@ case class WindowInstance(
   def makeContextCurrent(): Unit = glfwMakeContextCurrent(handler)
 
   def showWindow(): Unit = glfwShowWindow(handler)
+
+  def swapBuffers(): Unit = glfwSwapBuffers(handler)
 }

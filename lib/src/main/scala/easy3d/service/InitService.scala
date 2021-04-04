@@ -2,6 +2,7 @@ package easy3d.service
 
 import org.lwjgl.glfw.GLFW._
 import org.lwjgl.glfw._
+import org.lwjgl.opengl.GL
 
 /**
  * @author kostas.kougios
@@ -14,6 +15,9 @@ class InitService:
       throw new IllegalStateException("Unable to initialize GLFW")
 
   def swapInterval(interval: Int) = glfwSwapInterval(interval)
+
+  def createCapabilities() = GL.createCapabilities()
+
 
 trait InitServiceBeans:
   lazy val initService = new InitService()
