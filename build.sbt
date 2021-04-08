@@ -1,10 +1,10 @@
 val dottyVersion = "3.0.0-RC2"
 
-version in ThisBuild := "1.0"
+ThisBuild / version := "1.0"
 
-scalaVersion in ThisBuild := dottyVersion
+ThisBuild / scalaVersion := dottyVersion
 
-scalacOptions in ThisBuild ++= Seq("-unchecked", "-feature", "-deprecation")
+ThisBuild / scalacOptions ++= Seq("-unchecked", "-feature", "-deprecation")
 
 val LwjglVersion = "3.2.3"
 val LwjglNatives = "natives-linux"
