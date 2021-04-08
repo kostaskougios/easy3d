@@ -20,4 +20,4 @@ class InitService:
 
 
 trait InitServiceBeans:
-  lazy val initService = new InitService()
+  lazy val initService = new InitService
