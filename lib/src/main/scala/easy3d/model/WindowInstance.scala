@@ -17,4 +17,6 @@ case class WindowInstance(
   def showWindow(): Unit = glfwShowWindow(handler)
 
   def swapBuffers(): Unit = glfwSwapBuffers(handler)
+
+  //  def close():Unit = glfwClose
 }

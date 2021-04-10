@@ -1,6 +1,5 @@
 package easy3d.service
 
-import easy3d.lowlevel.Monitor
 import easy3d.model.{FullScreenWindow, MonitorInstance, Window, WindowInstance}
 import org.lwjgl.glfw.GLFW._
 import org.lwjgl.system.MemoryUtil.NULL

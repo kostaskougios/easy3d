@@ -14,8 +14,8 @@ import easy3d.model.drawables.ClearWindow
       mc =>
         val t = mc.time
         println(t)
-        if (t > 50)
+        if (t > 150)
           MainResult(exit = true)
-          else
+        else
           MainResult(draw = Seq(ClearWindow(Color(t / 100f, t / 100f, t / 100f, 0))))
     }
