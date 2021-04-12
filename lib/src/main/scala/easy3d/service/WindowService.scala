@@ -17,9 +17,9 @@ class WindowService(monitorService: MonitorService):
         WindowInstance(m, w, m.width, m.height)
 
   private def createFullScreenWindow(
-                                      monitor: MonitorInstance,
-                                      title: String
-                                    ): Long =
+    monitor: MonitorInstance,
+    title: String
+  ): Long =
     glfwDefaultWindowHints() // optional, the current window hints are already the default
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE) // the window will stay hidden after creation
     glfwWindowHint(GLFW_FLOATING, GLFW_TRUE)

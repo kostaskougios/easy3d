@@ -7,6 +7,6 @@ import easy3d.model.drawables.Drawable
  *         05/04/2021 - 00:04
  */
 case class MainResult(
-                       exit: Boolean = false,
-                       draw: Seq[Drawable] = Nil
-                     )
+  exit: Boolean = false,
+  draw: Seq[Drawable] = Nil
+)

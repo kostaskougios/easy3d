@@ -5,6 +5,6 @@ package easy3d.model
  *         05/04/2021 - 00:03
  */
 case class MainContext(
-                        time: Long,
-                        window: WindowInstance
-                      )
+  time: Long,
+  window: WindowInstance
+)

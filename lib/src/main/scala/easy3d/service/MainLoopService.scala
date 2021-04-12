@@ -9,9 +9,9 @@ import org.lwjgl.opengl.GL
  *         04/04/2021 - 23:50
  */
 class MainLoopService(
-                       initService: InitService,
-                       windowService: WindowService
-                     ):
+  initService: InitService,
+  windowService: WindowService
+):
   def mainLoop(window: Window)(main: MainContext => MainResult): Unit =
     initService.init()
     val w = windowService.create(window)
