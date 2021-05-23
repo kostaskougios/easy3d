@@ -1,8 +1,8 @@
-val dottyVersion = "3.0.0-RC3"
+val scala3Version = "3.0.0"
 
 ThisBuild / version := "1.0"
 
-ThisBuild / scalaVersion := dottyVersion
+ThisBuild / scalaVersion := scala3Version
 
 ThisBuild / scalacOptions ++= Seq("-unchecked", "-feature", "-deprecation")
 

@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11._
  *         05/04/2021 - 00:36
  */
 case class ClearWindow(color: Color) extends Drawable :
-  override def draw() =
+  override def draw(): Unit =
     glClearColor(color.red, color.green, color.blue, color.alpha)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
